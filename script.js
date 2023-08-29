@@ -1,6 +1,36 @@
 const taskname = document.getElementById("taskname");
 const addBtn = document.getElementById("addBtn");
 const listcontainer = document.getElementById("listcontainer");
+const container = document.querySelector(".container");
+const contmaxheight = document.querySelector("body").clientHeight - 200;
+const clrall = document.querySelector("#clrall");
+
+
+function saveData() {
+    localStorage.setItem("data", listcontainer.innerHTML);
+}
+
+function displayData() {
+    listcontainer.innerHTML = localStorage.getItem("data");
+}
+
+function checkscroll() {
+    if (container.clientHeight < contmaxheight) {
+        listcontainer.style.overflowY = "auto"
+    }
+    else {
+        listcontainer.style.overflowY = "scroll"
+    }
+}
+
+function checkvisibility() {
+    if (listcontainer.childElementCount < 3) {
+        clrall.style.display = "none";
+    }
+    else{
+        clrall.style.display = "block";
+    }
+}
 
 addBtn.addEventListener("click", () => {
     if (taskname.value === "") {
@@ -13,28 +43,37 @@ addBtn.addEventListener("click", () => {
 
         let span = document.createElement("span");
         span.innerHTML = "x";
-        li.appendChild(span)
-        saveData() ;
+        li.appendChild(span);
+        saveData();
+        checkscroll();
+        checkvisibility();
     }
-    taskname.value ="";
+    taskname.value = "";
 })
 
 listcontainer.addEventListener("click", (e) => {
     if (e.target.tagName == "LI") {
         e.target.classList.toggle("checked");
-        saveData() ;
+        saveData();
+        checkscroll();
+        checkvisibility();
     }
-    if(e.target.tagName == "SPAN") {
+    if (e.target.tagName == "SPAN") {
         e.target.parentElement.remove();
-        saveData() ;
+        saveData();
+        checkscroll();
+        checkvisibility();
     }
 })
-function saveData() {
-    localStorage.setItem("data", listcontainer.innerHTML);
-}
-function displayData() {
-    listcontainer.innerHTML = localStorage.getItem("data");
-}
+
+clrall.addEventListener("click", () => {
+    listcontainer.innerHTML = "";
+    saveData();
+    checkscroll();
+    checkvisibility();
+})
+
 displayData();
-console.log(localStorage.getItem("data"));
+checkscroll();
+checkvisibility();
 

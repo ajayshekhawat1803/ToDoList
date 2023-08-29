@@ -7,17 +7,17 @@
 
 body {
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     background: linear-gradient(135deg, rgb(42, 42, 237), rgb(216, 88, 216));
     display: flex;
     justify-content: center;
     padding-top: 100px;
-    padding-bottom: 30px;
+    padding-bottom: 100px;
 }
 
 .container {
     width: 100%;
-    max-width: 300px;
+    max-width: 400px;
     background-color: #fff;
     height: fit-content;
     max-height: calc(100% - 130px);
@@ -26,6 +26,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
+    max-height: calc(100vh - 200px);
 }
 
 .container h2 {
@@ -44,9 +46,12 @@ body {
     position: relative;
     display: flex;
     align-items: center;
+    padding: 5px 0px;
+    margin-bottom: 12px;
 }
 
 .row input {
+    width: 100%;
     background: transparent;
     border: none;
     outline: none;
@@ -62,7 +67,7 @@ body {
     border: none;
     outline: none;
     background-color: #fc861f;
-    padding: 5px 20px;
+    padding: 10px 25px;
     font-size: 17px;
     color: #fff;
     font-weight: 500;
@@ -77,6 +82,22 @@ body {
     width: 100%;
     padding: 10px;
     padding-top: 25px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: calc(100% - 60px);
+}
+
+#listcontainer::-webkit-scrollbar {
+    width: 5px;
+    background-color: violet;
+    border-radius: 7px;
+}
+
+#listcontainer::-webkit-scrollbar-thumb {
+    border-radius: 7px;
+    background-color: blue;
+    width: 5px;
+    display: block;
 }
 
 #listcontainer li {
@@ -111,19 +132,44 @@ body {
     border-radius: 50%;
 }
 
-#listcontainer li::before{
-content: "";
-width: 17px;
-height: 17px;
-background-color: #FFf;
-border-radius: 50%;
-margin-right: 5px;
+#listcontainer li::before {
+    content: "";
+    width: 17px;
+    height: 17px;
+    background-color: #FFf;
+    border-radius: 50%;
+    margin-right: 5px;
 }
-#listcontainer li.checked::before{
-background: url("/kgc8p7.jpg");
-background-position: center;
-background-size: cover;
+
+#listcontainer li.checked::before {
+    background: url("/kgc8p7.jpg");
+    background-position: center;
+    background-size: cover;
 }
-#listcontainer li.checked{
+
+#listcontainer li.checked {
     text-decoration: line-through;
+}
+
+#clrall{
+    width: 90%;
+    border: none;
+    outline: none;
+    padding: 7px 10px;
+    margin-top: 15px;
+    border-radius: 20px;
+    background-color: #f9943c;
+    color: #fff;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+@media screen and (max-width:430px) {
+    .container{
+        width: 90%;
+    }
+    #addBtn{
+        padding: 5px 14px;
+    }
 }
