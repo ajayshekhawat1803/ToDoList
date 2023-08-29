@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, rgb(42, 42, 237), rgb(216, 88, 216));
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    padding-bottom: 30px;
+}
+
+.container {
+    width: 100%;
+    max-width: 300px;
+    background-color: #fff;
+    height: fit-content;
+    max-height: calc(100% - 130px);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container h2 {
+    color: red;
+    -webkit-text-stroke: 1px yellow;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.row {
+    background-color: #e7dfdf;
+    overflow: hidden;
+    border-radius: 20px;
+    width: 95%;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.row input {
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 7px;
+    padding-left: 12px;
+}
+
+.row button {
+    position: absolute;
+    /* top: 5px; */
+    right: 0px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    background-color: #fc861f;
+    padding: 5px 20px;
+    font-size: 17px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.row button:hover {
+    background-color: #f9943c;
+}
+
+#listcontainer {
+    width: 100%;
+    padding: 10px;
+    padding-top: 25px;
+}
+
+#listcontainer li {
+    height: 30px;
+    position: relative;
+    list-style: none;
+    background-color: #f9eded;
+    padding-left: 7px;
+    padding-right: 0;
+    display: flex;
+    align-items: center;
+    border-radius: 34px;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#listcontainer li span {
+    position: absolute;
+    right: 0;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#listcontainer li span:hover {
+    background-color: #dfc8b4;
+    border-radius: 50%;
+}
+
+#listcontainer li::before{
+content: "";
+width: 17px;
+height: 17px;
+background-color: #FFf;
+border-radius: 50%;
+margin-right: 5px;
+}
+#listcontainer li.checked::before{
+background: url("/kgc8p7.jpg");
+background-position: center;
+background-size: cover;
+}
+#listcontainer li.checked{
+    text-decoration: line-through;
+}
