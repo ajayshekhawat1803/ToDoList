@@ -38,12 +38,16 @@ addBtn.addEventListener("click", () => {
     }
     else {
         let li = document.createElement("li");
-        li.innerHTML = taskname.value;;
+        li.innerHTML = taskname.value;
         listcontainer.appendChild(li);
 
         let span = document.createElement("span");
-        span.innerHTML = "x";
+        span.innerHTML = "";
         li.appendChild(span);
+        
+        let div = document.createElement("div");
+        div.innerHTML = "";
+        li.appendChild(div);
         saveData();
         checkscroll();
         checkvisibility();
@@ -60,6 +64,23 @@ listcontainer.addEventListener("click", (e) => {
     }
     if (e.target.tagName == "SPAN") {
         e.target.parentElement.remove();
+        saveData();
+        checkscroll();
+        checkvisibility();
+    }
+    if (e.target.tagName == "DIV") {
+        let random = e.target.parentElement;
+        let editTask = prompt("Edit Task :");
+        e.target.parentElement.textContent = editTask;
+        
+        let span = document.createElement("span");
+        span.innerHTML = "";
+        random.appendChild(span);
+        
+        let div = document.createElement("div");
+        div.innerHTML = "";
+        random.appendChild(div);
+
         saveData();
         checkscroll();
         checkvisibility();

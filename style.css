@@ -81,7 +81,6 @@ body {
 #listcontainer {
     width: 100%;
     padding: 10px;
-    padding-top: 25px;
     overflow-y: scroll;
     overflow-x: hidden;
     max-height: calc(100% - 60px);
@@ -125,6 +124,30 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    background: url('/delete.png');
+    background-position: center;
+    background-size: 85%;
+    background-repeat: no-repeat;
+}
+
+#listcontainer li div {
+    position: absolute;
+    right: 35px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: url('/edit-24.ico');
+    background-position: center;
+    background-size: 65%;
+    background-repeat: no-repeat;
+}
+
+#listcontainer li div:hover {
+    background-color: #dfc8b4;
+    border-radius: 50%;
 }
 
 #listcontainer li span:hover {
@@ -151,7 +174,7 @@ body {
     text-decoration: line-through;
 }
 
-#clrall{
+#clrall {
     width: 90%;
     border: none;
     outline: none;
@@ -166,10 +189,11 @@ body {
 }
 
 @media screen and (max-width:430px) {
-    .container{
+    .container {
         width: 90%;
     }
-    #addBtn{
+
+    #addBtn {
         padding: 10px 14px;
     }
 }
